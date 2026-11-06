@@ -124,6 +124,11 @@ jobs:
             rm -rf vendor
             tar -xzf vendor.tar.gz
             rm -f vendor.tar.gz
+            if [ ! -f .env ]; then cp .env.example .env; fi
+            php artisan key:generate --force
             chmod -R 775 storage bootstrap/cache
+            chown -R ebryan:ebryan storage bootstrap/cache
             php artisan migrate --force
+            php artisan config:clear
+            php artisan cache:clear
             php artisan config:cache
