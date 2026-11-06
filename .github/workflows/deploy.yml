@@ -119,7 +119,8 @@ jobs:
           script: |
             cd /home/ebryan/htdocs/ebryan.web.id
             git config --global --add safe.directory /home/ebryan/htdocs/ebryan.web.id
-            git pull origin main
+            git fetch origin main
+            git reset --hard origin/main
             rm -rf vendor
             tar -xzf vendor.tar.gz
             rm -f vendor.tar.gz
