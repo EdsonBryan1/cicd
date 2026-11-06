@@ -124,5 +124,6 @@ jobs:
             rm -rf vendor
             tar -xzf vendor.tar.gz
             rm -f vendor.tar.gz
+            chmod -R 775 storage bootstrap/cache
             php artisan migrate --force
             php artisan config:cache
